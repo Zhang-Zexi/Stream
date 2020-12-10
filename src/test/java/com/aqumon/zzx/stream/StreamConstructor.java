@@ -42,8 +42,7 @@ public class StreamConstructor {
     @Test
     public void streamFromFile() throws IOException {
         // TODO 此处替换为本地文件的地址全路径
-        String filePath = "D:\\02-DemoWorkSpace\\Java8\\src\\test\\java\\com\\aqumon\\zzx\\" +
-                "stream\\StreamConstructor.java";
+        String filePath = "D:\\02-Workspace\\Stream\\src\\test\\java\\com\\aqumon\\zzx\\stream\\StreamConstructor.java";
 
         Stream<String> stream = Files.lines(
                 Paths.get(filePath));

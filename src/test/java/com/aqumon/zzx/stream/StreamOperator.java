@@ -7,6 +7,7 @@ import com.aqumon.zzx.lambda.cart.SkuCategoryEnum;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -76,6 +77,7 @@ public class StreamOperator {
                 // flatMap
                 .flatMap(sku -> Arrays.stream(
                         sku.getSkuName().split("")))
+//                .flatMap(sku -> sku.getSkuName())
 
                 .forEach(item ->
                         System.out.println(
@@ -116,7 +118,7 @@ public class StreamOperator {
 
                 //sort
                 .sorted(Comparator.comparing(Sku::getTotalPrice))
-
+//                .sorted(Comparator.comparing(Sku::getTotalPrice).reversed())
                 .forEach(item ->
                         System.out.println(
                                 JSON.toJSONString(
@@ -190,10 +192,10 @@ public class StreamOperator {
     public void allMatchTest() {
         boolean match = list.stream()
 
-//                .peek(sku -> System.out.println(sku.getSkuName()))
+                .peek(sku -> System.out.println(sku.getSkuName()))
 
                 // allMatch
-                .allMatch(sku -> sku.getTotalPrice() > 100);
+                .allMatch(sku -> sku.getTotalPrice() > 10000);
 
         System.out.println(match);
     }
@@ -224,6 +226,7 @@ public class StreamOperator {
 
                 // noneMatch
                 .noneMatch(sku -> sku.getTotalPrice() > 10_000);
+//                .noneMatch(sku -> sku.getTotalPrice() > 10);
 
         System.out.println(match);
     }
@@ -302,6 +305,20 @@ public class StreamOperator {
                 .count();
 
         System.out.println(count);
+    }
+
+    /**
+     * reduce使用
+     */
+    @Test
+    public void reduceTest() {
+        Optional<Double> count= list.stream()
+                .limit(3)
+                .peek(Sku -> System.out.println(Sku.getSkuPrice()))
+                .map(Sku::getSkuPrice)
+                .reduce((x, y) -> x + y);
+
+        System.out.println(count.get());
     }
 
 }
