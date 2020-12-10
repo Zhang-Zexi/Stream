@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import java.util.*;
 
 /**
+ * @author zhangzx
+ *
  * 演示流的各种操作
  */
 public class StreamOperator {
