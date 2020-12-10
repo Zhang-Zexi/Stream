@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import static java.util.stream.Stream.concat;
 
 /**
  * 流的四种构建形式
@@ -66,5 +69,7 @@ public class StreamConstructor {
                 .forEach(System.out::println);
 
     }
+
+
 
 }

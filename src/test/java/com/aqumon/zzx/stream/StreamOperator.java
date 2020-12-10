@@ -298,6 +298,26 @@ public class StreamOperator {
         System.out.println(optionalDouble.getAsDouble());
     }
 
+    @Test
+    public void minTest2() {
+        List<Integer> lists = new ArrayList<>();
+        lists.add(5);
+        lists.add(1);
+        lists.add(3);
+        lists.add(6);
+        lists.add(2);
+        lists.add(4);
+
+        Optional<Integer> optionalDouble = lists.stream()
+                // 获取总价
+//                .min((x, y) -> x.compareTo(y));
+                .min(Integer::compareTo);
+//                .min((x, y) -> x.compareTo(y) < 0 ? -1 : 1);
+//                .min((x, y) -> x.compareTo(y) > 0 ? 1 : -1);
+
+        System.out.println(optionalDouble.get());
+    }
+
     /**
      * count使用
      */

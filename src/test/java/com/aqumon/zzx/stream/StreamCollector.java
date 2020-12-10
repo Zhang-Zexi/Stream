@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -46,6 +47,10 @@ public class StreamCollector {
                 .collect(
                         Collectors.groupingBy(
                                 sku -> sku.getSkuCategory()));
+//        Map<Object, Long> group = list.stream()
+//                .collect(
+//                        Collectors.groupingBy(
+//                                sku -> sku.getSkuCategory(), Collectors.counting()));
 
         System.out.println(
                 JSON.toJSONString(group, true));
