@@ -3,7 +3,6 @@ package com.aqumon.zzx.stream;
 import org.junit.Test;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +23,7 @@ public class StreamConcat {
 
         Stream<Integer> resultingStream = concat(firstStream, secondStream);
 
-        System.out.println( resultingStream.collect(Collectors.toList()) );
+        System.out.println(resultingStream.collect(Collectors.toList()));
     }
 
     /**
@@ -33,13 +32,13 @@ public class StreamConcat {
     @Test
     public void concatStreamTest2() {
         Stream<Integer> first = Stream.of(1, 2);
-        Stream<Integer> second = Stream.of(3,4);
+        Stream<Integer> second = Stream.of(3, 4);
         Stream<Integer> third = Stream.of(5, 6);
-        Stream<Integer> fourth = Stream.of(7,8);
+        Stream<Integer> fourth = Stream.of(7, 8);
 
         Stream<Integer> resultingStream = concat(first, concat(second, concat(third, fourth)));
 
-        System.out.println( resultingStream.collect(Collectors.toList()) );
+        System.out.println(resultingStream.collect(Collectors.toList()));
     }
 
     /**
@@ -51,8 +50,7 @@ public class StreamConcat {
         Stream<Integer> arr1 = Stream.of(arr);
         Stream<String> stringStream = Stream.of("a", "b", "x", "d");
         Stream<? extends Serializable> concat = Stream.concat(arr1, stringStream);
-        concat.forEach(str-> System.out.println(str));
+        concat.forEach(str -> System.out.println(str));
     }
-
 
 }

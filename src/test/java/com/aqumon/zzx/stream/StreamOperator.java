@@ -174,7 +174,7 @@ public class StreamOperator {
         list.stream()
                 .sorted(Comparator.comparing(Sku::getTotalPrice))
 
-//                .skip(1 * 3)
+                .skip(1 * 3)
 
                 // limit
                 .limit(3)
@@ -227,8 +227,8 @@ public class StreamOperator {
                 .peek(sku -> System.out.println(sku.getSkuName()))
 
                 // noneMatch
-                .noneMatch(sku -> sku.getTotalPrice() > 10_000);
-//                .noneMatch(sku -> sku.getTotalPrice() > 10);
+//                .noneMatch(sku -> sku.getTotalPrice() > 10_000);
+                .noneMatch(sku -> sku.getTotalPrice() > 10);
 
         System.out.println(match);
     }
@@ -331,6 +331,8 @@ public class StreamOperator {
 
     /**
      * reduce使用
+     *
+     * 归约操作，从一个流中生成一个值
      */
     @Test
     public void reduceTest() {

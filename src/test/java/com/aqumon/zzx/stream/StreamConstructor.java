@@ -22,7 +22,9 @@ public class StreamConstructor {
      */
     @Test
     public void streamFromValue() {
+        String a = "11";
         Stream stream = Stream.of(1, 2, 3, 4, 5);
+        Stream stream1 = Stream.of(a, 2, 3, 4, 5);
 
         stream.forEach(System.out::println);
     }
@@ -60,10 +62,10 @@ public class StreamConstructor {
     public void streamFromFunction() {
 
 //        1.迭代的方式生成流（初始值+生成方法）
-//        Stream stream = Stream.iterate(0, n -> n + 2);
+        Stream stream = Stream.iterate(0, n -> n + 2);
 
 //        2.迭代器生成流（随机生成）
-        Stream stream = Stream.generate(Math::random);
+//        Stream stream = Stream.generate(Math::random);
 
         stream.limit(100)
                 .forEach(System.out::println);

@@ -16,6 +16,8 @@ import java.util.function.Supplier;
 public class MethodReference {
 
     /**
+     *  1. 指向静态方法的方法引用
+     *
      * (args) -> ClassName.staticMethod(args);
      * ClassName::staticMethod;
      * 如果是一个对象调用它的静态方法时，我们就可以使用这个方法了
@@ -37,9 +39,14 @@ public class MethodReference {
     }
 
     /**
+     * 指向任意类型实例方法的方法引用
+     *
      * (args) -> args.instanceMethod();
      * ClassName::instanceMethod;
      * 如果调用传入参数的实例方法
+     *
+     * (实例方法相对于静态方法（或者叫类方法）而言，它就是没有 static 前缀的一类一般方法，被对象拥有
+     * 特点是定义的时候前面没有 static 前缀，本类中直接调用的时候必须也在实例方法内，否则调用前必须先实例出一个对象。)
      *
      */
     public void test2() {
@@ -62,6 +69,8 @@ public class MethodReference {
 
 
     /**
+     * 指向现有对象的实例方法的方法引用
+     *
      * (args) -> object.instanceMethod(args);
      * object::instanceMethod;
      * 如果外部对象调用它自己的方法
@@ -81,7 +90,7 @@ public class MethodReference {
     @Test
     public void testThree() {
 //        TestInstanceReference test = new TestInstanceReference();
-        User user = new User("欧阳峰",32);
+        User user = new User("汤键",32);
         Supplier<String> supplier = () -> user.getName();
         System.out.println("Lambda表达式输出结果：" + supplier.get());
 

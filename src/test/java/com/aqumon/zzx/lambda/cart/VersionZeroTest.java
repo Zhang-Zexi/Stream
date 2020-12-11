@@ -5,20 +5,16 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class VersionTwoTest {
+public class VersionZeroTest {
 
     @Test
     public void filterSkus() {
         List<Sku> cartSkuList = CartService.getCartSkuList();
 
-        // 过滤商品单价大于2000的商品
+        // 根据商品总价过滤超过2000元的商品列表
         List<Sku> result = CartService.filterSkus(
-                cartSkuList, new SkuPredicate() {
-                    @Override
-                    public boolean test(Sku sku) {
-                        return sku.getSkuPrice() > 2000;
-                    }
-                });
+                cartSkuList, null,
+                2000.00, false);
 
         System.out.println(JSON.toJSONString(
                 result, true));
