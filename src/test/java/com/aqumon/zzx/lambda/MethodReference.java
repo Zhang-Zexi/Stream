@@ -39,7 +39,7 @@ public class MethodReference {
     }
 
     /**
-     * 指向任意类型实例方法的方法引用
+     * 2. 指向任意类型实例方法的方法引用
      *
      * (args) -> args.instanceMethod();
      * ClassName::instanceMethod;
@@ -69,7 +69,7 @@ public class MethodReference {
 
 
     /**
-     * 指向现有对象的实例方法的方法引用
+     * 3. 指向现有对象的实例方法的方法引用
      *
      * (args) -> object.instanceMethod(args);
      * object::instanceMethod;

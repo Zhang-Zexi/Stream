@@ -63,7 +63,7 @@ public class CartService {
 
 
     /**
-     * Version 3.0.0
+     * Version
      * 支持通过商品类型或总价来过滤商品
      *
      * @param cartSkuList
@@ -94,7 +94,7 @@ public class CartService {
     }
 
     /**
-     * Version 4.0.0
+     * Version 1
      * 根据不同的Sku判断标准，对Sku列表进行过滤
      *
      * @param cartSkuList
